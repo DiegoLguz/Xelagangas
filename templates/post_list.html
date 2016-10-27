@@ -1,0 +1,61 @@
+{% extends "base.html"%}
+{% block content%}
+<head>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase|Jockey+One|Stardos+Stencil" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Nova+Round" rel="stylesheet"> 
+</head>
+  <body style="background-color:#f2f2ed">
+<img src='static/imgs/header.jpg' class='img-responsive'/><hr>
+<form action="http://127.0.0.1:8000/create/" method="post">{% csrf_token %}
+<p style="text-align:right"><input type=image src='static/imgs/plus.png' class='btn btn-Info btn-lg' width="90" height="70"></p>
+</form>
+<hr>
+<div class='col-sm-16 col-sm-offset-1.5'>
+    {% for obj in object_list %}
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="thumbnail">
+      <!--<img src="..." alt="...">-->
+      <div class="caption">
+          {% if obj.user.get_full_name%}
+          <small id='usr' >{{obj.user.get_full_name}}&nbsp;&nbsp;<small style="font-size:15px; color:gray">{{obj.timestamp|timesince}}</small></small>
+          {% endif%}
+          <h2 id='pub' ><a href="{{obj.get_absolute_url}}">{{obj.title}} </a></h2>
+          <h id='cont' > {{obj.content|linebreaks|truncatechars:130}} </h>
+          {% if obj.image %}
+          <p align="center"><img src='{{ obj.image.url}}' class='img-responsive'/></p><br>
+          {% endif %}
+          <div class="fb-like" data-href="{{request.build_absolute_url}}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+          <hr>
+          <div id='pub'>
+          <a href="{{obj.get_absolute_url}}" class="btn btn-primary" role="button">Ver Mas</a>
+          <a href="http://127.0.0.1:8000/edit/{{obj.id}}" class="btn btn-primary" role="button">Editar Producto</a>
+          <a href="http://127.0.0.1:8000/delete/{{obj.id}}" class="btn btn-Danger" role="button">Eliminar</a>
+          </div><hr>
+      </div>
+    </div>
+  </div>
+</div>
+{% cycle "" "<div class='col-sm-8'><hr/></div><div class='row'></div>" %}
+    {% endfor %}
+    
+<div class="pagination">
+    <span class="step-links">
+        {% if object_list.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+        </span>
+
+        {% if object_list.has_next %}
+            <a href="?page={{ object_list.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>    
+    
+</div>
+</body>
+{% endblock content%}

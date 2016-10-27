@@ -1,0 +1,38 @@
+<!--DOCTYPE HTML-->
+{% extends "base.html"%}
+{% block content%}
+<html>
+<head>
+    <title>Xelagangas</title>
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase|Jockey+One|Stardos+Stencil" rel="stylesheet"> 
+</head>
+<body style="background-color:#f2f2ed" >
+<h1 style="font-size:150px; text-align: center; color:#510000;font-family: 'Great Vibes', cursive; "> Xelagangas</h1>
+
+<div class="row" style="background-color : transparent;">
+  <div class="col-sm-4 col-sm-offset-4">
+    <div class="thumbnail">
+      <div class="caption">
+        	 <div class="form-group">
+                <input type="text" class="form-control" placeholder="Usuario o correo">
+             </div>
+             <div class="form-group">
+                <input type="password" class="form-control" placeholder="Contraseña">
+             </div>
+                <p style="text-align:center"><input  type='submit' class='btn btn-default btn-block' value ='Iniciar Sesion'/></p>
+             <label for="pwd"> O conectar con:</label>
+              <a href="http://127.0.0.1:8000/" class="btn btn-block btn-social btn-facebook">
+            <span class="fa fa-facebook"></span> Sign in with Facebook
+          </a>
+                <a href="http://127.0.0.1:8000/" class="btn btn-block btn-social btn-twitter"> 
+                    <i class="fa fa-twitter"></i> Sign in with Twitter 
+          </a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+{% endblock content%}
