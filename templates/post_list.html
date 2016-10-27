@@ -6,7 +6,7 @@
 </head>
   <body style="background-color:#f2f2ed">
 <img src='static/imgs/header.jpg' class='img-responsive'/><hr>
-<form action="http://127.0.0.1:8000/create/" method="post">{% csrf_token %}
+<form action="http://diegolguz.pythonanywhere.com/create/" method="post">{% csrf_token %}
 <p style="text-align:right"><input type=image src='static/imgs/plus.png' class='btn btn-Info btn-lg' width="90" height="70"></p>
 </form>
 <hr>
@@ -30,8 +30,8 @@
           <hr>
           <div id='pub'>
           <a href="{{obj.get_absolute_url}}" class="btn btn-primary" role="button">Ver Mas</a>
-          <a href="http://127.0.0.1:8000/edit/{{obj.id}}" class="btn btn-primary" role="button">Editar Producto</a>
-          <a href="http://127.0.0.1:8000/delete/{{obj.id}}" class="btn btn-Danger" role="button">Eliminar</a>
+          <a href="http://diegolguz.pythonanywhere.com/edit/{{obj.id}}" class="btn btn-primary" role="button">Editar Producto</a>
+          <a href="http://diegolguz.pythonanywhere.com/delete/{{obj.id}}" class="btn btn-Danger" role="button">Eliminar</a>
           </div><hr>
       </div>
     </div>
