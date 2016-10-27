@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^(?P<id>\d+)/', post_views.post_detail, name ='detail'),
     url(r'^edit/(?P<id>\d+)/', post_views.post_update, name = 'update'),
     url(r'^delete/(?P<id>\d+)/', post_views.post_delete),
+    url(r'^artista/', post_views.entrada, name="artista"),
    
 ]
 

@@ -5,10 +5,18 @@
 <link href="https://fonts.googleapis.com/css?family=Nova+Round" rel="stylesheet"> 
 </head>
   <body style="background-color:#f2f2ed">
+      
+      
+      <nav class="navbar navbar-default" role="navigation">{% csrf_token %}
+          <ul class="nav navbar-nav"  style="padding-left:3px">
+              <li class="active" style="padding-right:3px"><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/plus.png' class='btn btn-Info' width="65" height="50">Cancion</p></a></li>
+              <li class="active"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/plus.png' class='btn btn-Info' width="65" height="50">Artista</p></a></li>
+              
+          </ul>
+
+      </nav>
+      
 <img src='static/imgs/header.jpg' class='img-responsive'/><hr>
-<form action="http://diegolguz.pythonanywhere.com/create/" method="post">{% csrf_token %}
-<p style="text-align:right"><input type=image src='static/imgs/plus.png' class='btn btn-Info btn-lg' width="90" height="70"></p>
-</form>
 <hr>
 <div class='col-sm-16 col-sm-offset-1.5'>
     {% for obj in object_list %}
@@ -26,6 +34,11 @@
           {% if obj.image %}
           <p align="center"><img src='{{ obj.image.url}}' class='img-responsive'/></p><br>
           {% endif %}
+          <div class='row'>
+          <p style="text-align:center">  <audio controls>
+                <source src='{{ obj.cancion.url}}' type='audio/mpeg'>
+            </audio></p>
+          </div>
           <div class="fb-like" data-href="{{request.build_absolute_url}}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
           <hr>
           <div id='pub'>

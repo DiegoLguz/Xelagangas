@@ -1,10 +1,31 @@
 from django.http import HttpResponse, HttpResponseRedirect,Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
+from .models import Archivos
 from .forms import PostForm
+from .forms import ArchivoForm
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import TemplateView
+from django.core.urlresolvers import reverse
+
+
+
+def entrada(request):
+    if not request.user.is_staff or not request.user.is_superuser:
+        raise Http404
+    if not request.user.is_staff or not request.user.is_superuser:
+        raise Http404
+    form = ArchivoForm(request.POST or None,request.FILES or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.user = request.user
+        instance.save()
+        return HttpResponseRedirect(instance.get_absolute_url())
+    context = {
+        "form": form,
+    }
+    return render(request,"post_form.html",context)
 
 
 def post_login(request):

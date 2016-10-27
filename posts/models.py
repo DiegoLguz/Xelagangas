@@ -4,14 +4,33 @@ from django.core.urlresolvers import reverse
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
 from django.conf import settings
+from .validators import validate_file_extension
 # Create your models here.
 #MVC MODEL VIEW CONTROLLER 
 
 def upload_location(instance,filename):
     return "%s/%s" %(instance.id, filename,)
 
-class Post(models.Model):
+  
+class Archivos(models.Model):
+    artista = models.CharField(max_length=120)
+    album = models.CharField(max_length=100)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
+    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+    timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+    
+    def __unicode__(self):
+        return self.album
+    
+    def __str__(self):
+        return self.album
+    
+    def get_absolute_url(self):
+        return reverse("detail", kwargs={"id": self.id})
+
+
+class Post(models.Model):
+    nombrealbum = models.ForeignKey(Archivos)
     title = models.CharField(max_length=120)
     slug = models.SlugField(unique=True)
     image = models.ImageField(upload_to=upload_location, 
@@ -20,6 +39,7 @@ class Post(models.Model):
                         height_field="height_field")
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
+    cancion = models.FileField(upload_to=upload_location, null=True, blank=True, validators=[validate_file_extension])
     content = models.TextField()
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
@@ -32,7 +52,6 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse("detail", kwargs={"id": self.id})
-
 
 def create_slug(instance, new_slug=None):
     slug = slugify(instance.title)
