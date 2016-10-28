@@ -7,9 +7,17 @@
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase|Jockey+One|Stardos+Stencil" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Ceviche+One|Marcellus+SC|New+Rocker|UnifrakturMaguntia" rel="stylesheet"> 
 </head>
-  <body style="background-color:#f2f2ed">
+  <body style="background-color:#3d3d3d">
+       <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
+          <ul class="nav navbar-nav"  style="padding-left:5px">
+              <li class="active" style="padding-right:5px"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/art.png' class='btn btn-Default' width="65" height="50">Artista</p></a></li>
+              <li class="active" ><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/ag.png' class='btn btn-Default' width="60" height="50">Cancion</p></a></li>
+              
+          </ul>
+
+      </nav>
 <div class='page-header'>
-    <h1 id='head'>Articulo</h1>
+    <h1 id='head'>ROCKVOLUCION</h1>
 </div>
 <div class='col-sm-16 col-sm-offset-3'>
     <div class="row">
@@ -19,7 +27,7 @@
           <div class="caption">
                <form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
             {{form.as_p}}
-            <input type='submit' class='btn btn-success btn-lg' value ='Listo'/>
+            <input type='submit' class='btn btn-Default' value ='Guardar'/>
         </form> 
           </div>
         </div>

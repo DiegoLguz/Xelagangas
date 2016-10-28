@@ -11,6 +11,14 @@
 <link href="https://fonts.googleapis.com/css?family=Ceviche+One|Marcellus+SC|New+Rocker|UnifrakturMaguntia" rel="stylesheet"> 
 </head>
   <body style="background-color:#3d3d3d">
+     <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
+          <ul class="nav navbar-nav"  style="padding-left:5px">
+              <li class="active" style="padding-right:5px"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/art.png' class='btn btn-Default' width="65" height="50">Artista</p></a></li>
+              <li class="active" ><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/ag.png' class='btn btn-Default' width="60" height="50">Cancion</p></a></li>
+              
+          </ul>
+
+      </nav>
 <div class='page-header'>
 <h1 id='head'>{{instance.title}}</h1>
 </div>
@@ -29,13 +37,14 @@
              <img src='{{ instance.image.url}}' class='img-responsive'/>
           {% endif %}
             <hr>
+             <div class='row'>
+                <p style="text-align:center"> 
+              <audio id="demo"  preload="auto" src='{{ instance.cancion.url}}' controls> </audio></p>
+            </div>
+            <hr>
             <h id='cont'> {{instance.content|linebreaks}}</h>
         
             <br>
-          <div class='row'>
-          <p style="text-align:center"> 
-              <audio id="demo"  preload="auto" src='{{ instance.cancion.url}}' controls> </audio></p>
-          </div>
           <hr>
             <div id='pub' style="background-color:#3d3d3d; padding-bottom:12px;padding-top:10px;padding-left:5px">
               <a href="http://diegolguz.pythonanywhere.com/" class="btn btn-primary" role="button">Inicio</a>
