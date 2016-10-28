@@ -10,14 +10,18 @@
       
       <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
           <ul class="nav navbar-nav"  style="padding-left:5px">
-              <li class="active" style="padding-right:5px"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/art.png' class='btn btn-Default' width="65" height="50">Artista</p></a></li>
-              <li class="active" ><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/ag.png' class='btn btn-Default' width="60" height="50">Cancion</p></a></li>
+              <li class="active" style="padding-right:5px"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/art.png' class='btn btn-Default' width="65" height="50">&nbsp;Artista</p></a></li>
+              <li class="active" ><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/ag.png' class='btn btn-Default' width="60" height="50">&nbsp;Cancion</p></a></li>
               
           </ul>
 
       </nav>
-      
-<img src='static/imgs/head.jpg' class='img-responsive'/><br>
+ <ul id="carousel">
+  <li><img  alt="" src="static/imgs/head.jpg" class='img-responsive' /></li>
+  <li><img  alt="" src="static/imgs/met.jpg" class='img-responsive' /></li>
+  <li><img  alt="" src="static/imgs/pf.jpg" class='img-responsive' /></li>
+  <li><img  alt="" src="static/imgs/mh.jpg" class='img-responsive' /></li>
+</ul> <br>
 <div class='col-sm-16 col-sm-offset-1.5' style="background-color:#000000">
     {% for obj in object_list %}
 
@@ -69,5 +73,29 @@
 </div>    
     
 </div>
+
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+  <script src="http://notoyontoy.site40.net/Js/jquery.infinitecarousel3.min.js"></script>
+
+  <script type="text/javascript" src="http://notoyontoy.site40.net/Js/easing.js"></script>
+
+  <script>
+ var a = jQuery.noConflict();
+  a(document).ready(function() {
+  a('#carousel').infiniteCarousel({
+     transitionSpeed:4000,     /*Tiempo de avance de las imagenes*/
+     displayTime: 6000,   /* El tiempo en milisegundos para hacer pausa*/
+     thumbnailType: 'false',
+     customClass: 'myCarousel',
+     easeLeft: 'linear',
+     easeRight:'linear',
+     inView: 1,    /*Imagenes mostradas*/
+     advance: true,
+     autoPilot: true,
+     displayProgressRing: true,    /*muestra grafica del tiempo que pausa la imagen*/
+});
+});
+      </script>
 </body>
 {% endblock content%}
