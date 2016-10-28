@@ -3,46 +3,44 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase|Jockey+One|Stardos+Stencil" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Nova+Round" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Ceviche+One|Marcellus+SC|New+Rocker|UnifrakturMaguntia" rel="stylesheet"> 
 </head>
-  <body style="background-color:#f2f2ed">
+  <body style="background-color:#3d3d3d">
       
       
-      <nav class="navbar navbar-default" role="navigation">{% csrf_token %}
-          <ul class="nav navbar-nav"  style="padding-left:3px">
-              <li class="active" style="padding-right:3px"><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/plus.png' class='btn btn-Info' width="65" height="50">Cancion</p></a></li>
-              <li class="active"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/plus.png' class='btn btn-Info' width="65" height="50">Artista</p></a></li>
+      <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
+          <ul class="nav navbar-nav"  style="padding-left:5px">
+              <li class="active" style="padding-right:5px"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/art.png' class='btn btn-Default' width="65" height="50">Artista</p></a></li>
+              <li class="active" ><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2"><input type=image src='static/imgs/ag.png' class='btn btn-Default' width="60" height="50">Cancion</p></a></li>
               
           </ul>
 
       </nav>
       
-<img src='static/imgs/header.jpg' class='img-responsive'/><hr>
-<hr>
-<div class='col-sm-16 col-sm-offset-1.5'>
+<img src='static/imgs/head.jpg' class='img-responsive'/><br>
+<div class='col-sm-16 col-sm-offset-1.5' style="background-color:#000000">
     {% for obj in object_list %}
 
-<div class="row">
-  <div class="col-sm-12">
+<div class="row" style="background-color:#262626">
+  <div class="col-sm-12" >
     <div class="thumbnail">
       <!--<img src="..." alt="...">-->
       <div class="caption">
           {% if obj.user.get_full_name%}
           <small id='usr' >{{obj.user.get_full_name}}&nbsp;&nbsp;<small style="font-size:15px; color:gray">{{obj.timestamp|timesince}}</small></small>
           {% endif%}
-          <h2 id='pub' ><a href="">{{obj.nombrealbum}} </a></h2>
           <h2 id='pub' ><a href="{{obj.get_absolute_url}}">{{obj.title}} </a></h2>
           <h id='cont' > {{obj.content|linebreaks|truncatechars:130}} </h>
           {% if obj.image %}
           <p align="center"><img src='{{ obj.image.url}}' class='img-responsive'/></p><br>
           {% endif %}
           <div class='row'>
-          <p style="text-align:center">  <audio controls>
-                <source src='{{ obj.cancion.url}}' type='audio/mpeg'>
-            </audio></p>
+          <p style="text-align:center"> 
+              <audio id="demo"  preload="auto" src='{{ obj.cancion.url}}' controls> </audio></p>
           </div>
           <div class="fb-like" data-href="{{request.build_absolute_url}}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
           <hr>
-          <div id='pub'>
+          <div id='pub' style="background-color:#3d3d3d; padding-bottom:12px;padding-top:10px;padding-left:5px">
           <a href="{{obj.get_absolute_url}}" class="btn btn-primary" role="button">Ver Mas</a>
           <a href="http://diegolguz.pythonanywhere.com/edit/{{obj.id}}" class="btn btn-primary" role="button">Editar Producto</a>
           <a href="http://diegolguz.pythonanywhere.com/delete/{{obj.id}}" class="btn btn-Danger" role="button">Eliminar</a>

@@ -1,10 +1,10 @@
 #head{
     text-align: center;
     color:#f2f2ed;
-    font-family: 'Great Vibes', cursive;
+       font-family: 'New Rocker', cursive;
 }
  .page-header {
-        background-color: #510000;
+        background-color: #262626;
         margin-top: 0;
         padding: 20px 20px 20px 40px;
     }
@@ -16,26 +16,27 @@
     }
 #usr{
     
-    font-family: 'Jockey One', sans-serif;
+    font-family: 'Ceviche One', cursive;
     font-size: 30px;
     color:#6d0000;
 }
 #pub{
-    
-    font-family: 'Stardos Stencil', cursive;
+    text-align: center;
+    font-family: 'New Rocker', cursive;
     font-size: 25px;
     color: black;
 }
 
-#pub{
+#pub2{
     
-    font-family: 'Stardos Stencil', cursive;
+    font-family: 'UnifrakturMaguntia', cursive;
     font-size: 25px;
     color: white;
 }
 
 #cont {
-    font-family: 'Nova Round', cursive;
+    text-align: center;
+    font-family: 'Marcellus SC', serif;
     font-size: 20px;
     color: black;
 }

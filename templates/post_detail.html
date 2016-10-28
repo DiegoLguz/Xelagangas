@@ -8,11 +8,13 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase|Jockey+One|Stardos+Stencil" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Ceviche+One|Marcellus+SC|New+Rocker|UnifrakturMaguntia" rel="stylesheet"> 
 </head>
-  <body style="background-color:#f2f2ed">
+  <body style="background-color:#3d3d3d">
 <div class='page-header'>
-<h1 id='head'>Detalle del Articulo</h1>
+<h1 id='head'>{{instance.title}}</h1>
 </div>
+      
 <div class='col-sm-16 col-sm-offset-3'>
 <div class="row">
   <div class="col-sm-8">
@@ -23,13 +25,19 @@
               <small id='usr'>{{instance.user.get_full_name}}</small><br>
               <small style="color:#9e9e9e;">{{instance.timestamp}}</small>
           {% endif%}
-            <h3 id='pub'>{{instance.title}}</h3>
-            <h id='cont'> {{instance.content|linebreaks}}</h>
-          {% if instance.image%}
+              {% if instance.image%}
              <img src='{{ instance.image.url}}' class='img-responsive'/>
           {% endif %}
+            <hr>
+            <h id='cont'> {{instance.content|linebreaks}}</h>
+        
+            <br>
+          <div class='row'>
+          <p style="text-align:center"> 
+              <audio id="demo"  preload="auto" src='{{ instance.cancion.url}}' controls> </audio></p>
+          </div>
           <hr>
-            <div id='pub'>
+            <div id='pub' style="background-color:#3d3d3d; padding-bottom:12px;padding-top:10px;padding-left:5px">
               <a href="http://diegolguz.pythonanywhere.com/" class="btn btn-primary" role="button">Inicio</a>
               <a href="http://diegolguz.pythonanywhere.com/edit/{{instance.id}}" class="btn btn-primary" role="button">Editar Producto</a>
               <a href="http://diegolguz.pythonanywhere.com/delete/{{instance.id}}" class="btn btn-Danger" role="button">Eliminar</a>
