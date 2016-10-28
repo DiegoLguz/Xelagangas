@@ -29,6 +29,7 @@
           {% if obj.user.get_full_name%}
           <small id='usr' >{{obj.user.get_full_name}}&nbsp;&nbsp;<small style="font-size:15px; color:gray">{{obj.timestamp|timesince}}</small></small>
           {% endif%}
+          <h2 id='pub' ><a href="">{{obj.nombrealbum}} </a></h2>
           <h2 id='pub' ><a href="{{obj.get_absolute_url}}">{{obj.title}} </a></h2>
           <h id='cont' > {{obj.content|linebreaks|truncatechars:130}} </h>
           {% if obj.image %}
