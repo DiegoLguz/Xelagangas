@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect,Http404
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect,render_to_response
 from .models import Post
 from .models import Archivos
 from .forms import PostForm
@@ -21,7 +21,7 @@ def entrada(request):
         instance = form.save(commit=False)
         instance.user = request.user
         instance.save()
-        return HttpResponseRedirect(instance.get_absolute_url())
+        return redirect('http://diegolguz.pythonanywhere.com/')
     context = {
         "form": form,
     }
