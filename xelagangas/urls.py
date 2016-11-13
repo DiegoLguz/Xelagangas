@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^edit/(?P<id>\d+)/', post_views.post_update, name = 'update'),
     url(r'^delete/(?P<id>\d+)/', post_views.post_delete),
     url(r'^artista/', post_views.entrada, name="artista"),
-    url(r'^signup$', post_views.signup, name='signup'),
+    url(r'^signup/$', post_views.signup, name='signup'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^home/$', post_views.home, name='home'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'post_list.html', }, name="logout"),
