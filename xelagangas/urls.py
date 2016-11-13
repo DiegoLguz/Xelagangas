@@ -4,7 +4,7 @@ from posts import views as post_views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from django.views.generic import RedirectView
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^signup/$', post_views.signup, name='signup'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^home/$', post_views.home, name='home'),
-    url(r'^logout/$', auth_views.logout,RedirectView.as_view(url='http://diegolguz.pythonanywhere.com/'), name="logout"),
+    url(r'^logout/$', auth_views.logout, {'template_name': 'login.html', }, name="logout"),
     url(r'^main/$', post_views.post_list2, name='main'),
    
 ]
