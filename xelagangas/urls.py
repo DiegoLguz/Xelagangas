@@ -16,7 +16,7 @@ urlpatterns = [
     url(r'^signup/$', post_views.signup, name='signup'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^home/$', post_views.home, name='home'),
-    url(r'^logout/$', auth_views.logout, {'template_name': 'post_list.html', }, name="logout"),
+    url(r'^logout/$', auth_views.logout, {'template_name': '/', }, name="logout"),
     url(r'^main/$', post_views.post_list2, name='main'),
    
 ]
