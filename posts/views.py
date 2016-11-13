@@ -38,7 +38,7 @@ def signup(request):
  
             user.save()
  
-            return HttpResponseRedirect(reverse('main')) 
+            return HttpResponseRedirect(reverse('login')) 
     else:
         form = SignUpForm()
  
