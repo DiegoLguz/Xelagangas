@@ -130,7 +130,7 @@ MEDIA_URL ='/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 
 # Redirect when login is correct.
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/main/"
 # Redirect when login is not correct.
 LOGIN_URL = '/'
 APPEND_SLASH = False

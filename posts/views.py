@@ -47,10 +47,6 @@ def signup(request):
     }
     return render(request,"signup.html",data)
 
-
-def main(request):
-    return render_to_response('main.html', {}, context_instance=RequestContext(request))
-
 def entrada(request):
     if not request.user.is_staff or not request.user.is_superuser:
         raise Http404
@@ -117,6 +113,27 @@ def post_list(request):
             "title": "Inicie sesion para ver la lista de articulos"
         }
     return render(request,"post_list.html",context)
+
+def post_list2(request):
+    queryset_list = Post.objects.all().order_by("-timestamp")
+    paginator = Paginator(queryset_list, 5) 
+    page = request.GET.get('page')
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:    
+        queryset = paginator.page(1)
+    except EmptyPage:
+        queryset = paginator.page(paginator.num_pages)
+    if request.user.is_authenticated():
+        context = {
+            "object_list": queryset,
+            "title": "XelaGangas"
+        }
+    else:
+        context = {
+            "title": "Inicie sesion para ver la lista de articulos"
+        }
+    return render(request,"post_list2.html",context)
 
 
 @login_required()
