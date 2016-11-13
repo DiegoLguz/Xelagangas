@@ -10,7 +10,7 @@ from django.views.generic import TemplateView
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
-from forms import SignUpForm
+from .forms import SignUpForm
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
