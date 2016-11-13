@@ -64,7 +64,7 @@ def entrada(request):
     return render(request,"post_form.html",context)
 
 def logout(request):
-    return redirect('http://diegolguz.pythonanywhere.com/')
+    return redirect(request,'http://diegolguz.pythonanywhere.com/')
 
 def login(request):
     return render(request,"login.html")
