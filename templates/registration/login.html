@@ -1,0 +1,44 @@
+<!--DOCTYPE HTML-->
+{% extends "base.html"%}
+{% block content%}
+<html>
+<head>
+    <title>Xelagangas</title>
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase|Jockey+One|Stardos+Stencil" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Ceviche+One|Marcellus+SC|New+Rocker|UnifrakturMaguntia" rel="stylesheet"> 
+</head>
+<body style="background-color:#f2f2ed" >
+<h1 style="font-size:150px; text-align: center; color:#510000;font-family: 'Great Vibes', cursive; "> Xelagangas</h1>
+
+<div class="row" style="background-color : transparent;">
+  <div class="col-sm-4 col-sm-offset-4">
+    <div class="thumbnail">
+      <div class="caption">
+        	 {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+ 
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <table style="color:black">
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+        </table>
+ 
+        <input type="submit" value="login"/> <input type="hidden" name="next" value="{{ next }}"/>
+    </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+{% endblock content%}

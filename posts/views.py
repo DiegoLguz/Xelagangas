@@ -8,8 +8,48 @@ from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import TemplateView
 from django.core.urlresolvers import reverse
+from django.shortcuts import render_to_response
+from django.template.context import RequestContext
+from forms import SignUpForm
+from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
+
+@login_required()
+def home(request):
+    return render_to_response('home.html', {'user': request.user}, context_instance=RequestContext(request))
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+ 
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            email = form.cleaned_data["email"]
+            first_name = form.cleaned_data["first_name"]
+            last_name = form.cleaned_data["last_name"]
+
+            user = User.objects.create_user(username, email, password)
+            user.first_name = first_name
+            user.last_name = last_name
+            user.is_staff = True
+            user.is_superuser = True
+ 
+            user.save()
+ 
+            return HttpResponseRedirect(reverse('main')) 
+    else:
+        form = SignUpForm()
+ 
+    data = {
+        'form': form,
+    }
+    return render(request,"signup.html",data)
 
 
+def main(request):
+    return render_to_response('main.html', {}, context_instance=RequestContext(request))
 
 def entrada(request):
     if not request.user.is_staff or not request.user.is_superuser:
@@ -28,10 +68,10 @@ def entrada(request):
     return render(request,"post_form.html",context)
 
 
-def post_login(request):
-    return render(request,"index.html")
+def login(request):
+    return render(request,"login.html")
 
-
+@login_required()
 def post_create(request):
     if not request.user.is_staff or not request.user.is_superuser:
         raise Http404
@@ -56,6 +96,7 @@ def post_detail(request,id=None):
     }
     return render(request,"post_detail.html",context)
 
+
 def post_list(request):
     queryset_list = Post.objects.all().order_by("-timestamp")
     paginator = Paginator(queryset_list, 5) 
@@ -78,7 +119,7 @@ def post_list(request):
     return render(request,"post_list.html",context)
 
 
-
+@login_required()
 def post_update(request, id=None):
     if not request.user.is_staff or not request.user.is_superuser:
         raise Http404
@@ -97,6 +138,7 @@ def post_update(request, id=None):
     }
     return render(request,"post_form.html",context)
 
+@login_required()
 def post_delete(request, id=None):
     if not request.user.is_staff or not request.user.is_superuser:
         raise Http404
