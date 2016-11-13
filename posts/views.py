@@ -63,7 +63,8 @@ def entrada(request):
     }
     return render(request,"post_form.html",context)
 
-
+def logout(request):
+    return(request,'list')
 def login(request):
     return render(request,"login.html")
 
