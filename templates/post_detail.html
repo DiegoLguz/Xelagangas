@@ -42,9 +42,9 @@
             <hr>
                <div id='pub' style="background-color:#3d3d3d; padding-bottom:12px;padding-top:10px;padding-left:5px">
                <a href="http://diegolguz.pythonanywhere.com/main/" class="btn" role="button">Inicio</a>
-                 {% ifequal obj.usuar usuario %}
-                  <a href="http://diegolguz.pythonanywhere.com/edit/{{obj.id}}/" class="btn" role="button">Editar</a>
-                  <a href="http://diegolguz.pythonanywhere.com/delete/{{obj.id}}/" class="btn btn-Danger" role="button">Eliminar</a>
+                 {% ifequal instance.usuar usuario %}
+                  <a href="http://diegolguz.pythonanywhere.com/edit/{{instance.id}}/" class="btn" role="button">Editar</a>
+                  <a href="http://diegolguz.pythonanywhere.com/delete/{{instance.id}}/" class="btn btn-Danger" role="button">Eliminar</a>
                   {% endifequal %}
             </div>
             <hr>

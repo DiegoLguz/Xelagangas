@@ -80,10 +80,12 @@ def post_create(request):
     return render(request,"post_form.html",context)
 
 def post_detail(request,id=None):
+    usuario = request.user
     instance = get_object_or_404(Post,id=id)
     context = {
         "title": instance.title,
         "instance": instance,
+        "usuario": usuario,
     }
     return render(request,"post_detail.html",context)
 
