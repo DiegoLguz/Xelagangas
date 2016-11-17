@@ -53,7 +53,7 @@ def entrada(request):
         instance = form.save(commit=False)
         instance.user = request.user
         instance.save()
-        return redirect('http://diegolguz.pythonanywhere.com/main/')
+        return redirect('http://diegolguz.pythonanywhere.com/create/')
     context = {
         "form": form,
     }
