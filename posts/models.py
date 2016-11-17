@@ -46,16 +46,16 @@ class Post(models.Model):
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     
     def __unicode__(self):
-        return self.title
+        return self.titulo
     
     def __str__(self):
-        return self.title
+        return self.titulo
     
     def get_absolute_url(self):
         return reverse("detail", kwargs={"id": self.id})
 
 def create_slug(instance, new_slug=None):
-    slug = slugify(instance.title)
+    slug = slugify(instance.titulo)
     if new_slug is not None:
         slug = new_slug
     qs =Post.objects.filter(slug=slug).order_by("-id")
