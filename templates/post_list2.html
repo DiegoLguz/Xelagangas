@@ -4,26 +4,22 @@
 <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase|Jockey+One|Stardos+Stencil" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Nova+Round" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Ceviche+One|Marcellus+SC|New+Rocker|UnifrakturMaguntia" rel="stylesheet"> 
+    
 </head>
   <body style="background-color:#3d3d3d">
       
-
-      
-      <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
+        <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
           <ul class="nav navbar-nav"  style="padding-left:5px">
               <li class="active" style="padding-right:5px;padding-top:5px;padding-bottom:5px"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2">&nbsp;+ Artista</p></a></li>
               <li class="active " style="padding-right:5px;padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2">&nbsp;+ Cancion</p></a></li>
-              <li id="pub" class="dropdown" style="padding-right:5px;padding-top:5px;padding-bottom:5px;margin-left:18cm">
-                <a style="color:white;text-align:right;text-transform: uppercase;" href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  {{usuario}} <b class="caret"></b> 
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="active " style="padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/logout/"><p style="text-align:right" id="pub2">&nbsp;Cerrar Sesion</p></a></li>
-                </ul>
-              </li>
+              <li class="active " style="padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/logout/"><p style="text-align:right" id="pub2">&nbsp;Cerrar Sesion</p></a></li>
+              <li class="active " style="padding-top:5px;padding-bottom:5px" ><h1 id="pub" style="margin-left:14cm;color:white;text-align:right;text-transform: uppercase;">&nbsp; {{usuario}}  </h1></li>
+              
+              
           </ul>
 
       </nav>
+
  <ul id="carousel">
   <li><img  alt="" src="static/imgs/head.jpg" class='img-responsive' /></li>
   <li><img  alt="" src="static/imgs/met.jpg" class='img-responsive' /></li>
