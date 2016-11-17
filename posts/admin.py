@@ -14,7 +14,7 @@ class PostModelAdmin(admin.ModelAdmin):
         model = Post
         
 class ArchivosModelAdmin(admin.ModelAdmin):
-    list_display= ["artista","album","updated","timestamp"]
+    list_display= ["user","artista","album","updated","timestamp"]
     list_display_links = ["updated"]
     list_filter = ["updated","timestamp"]
     list_editable = ["artista","album"]

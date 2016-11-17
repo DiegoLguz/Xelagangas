@@ -10,8 +10,8 @@ class PostForm(forms.ModelForm):
         fields = [
             "nombrealbum",
             "title",
-            "cancion",
             "image",
+            "cancion",
             "content",
         ]  
         
@@ -20,7 +20,7 @@ class ArchivoForm(forms.ModelForm):
         model = Archivos
         fields = [
             "artista",
-            "album"
+            "album",
         ]
         
 class SignUpForm(ModelForm):
