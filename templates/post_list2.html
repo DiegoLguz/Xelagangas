@@ -32,8 +32,8 @@
     <div class="thumbnail">
       <!--<img src="..." alt="...">-->
       <div class="caption">
-            {% if obj.user.get_full_name%}
-          <small style="color:black" id='usr' >{{obj.user.get_full_name}}&nbsp;&nbsp;<small style="font-size:15px; color:gray">{{obj.timestamp|timesince}}</small></small>
+          {% if obj.user.get_full_name%}
+          <small id='usr' >{{obj.user.get_full_name}}&nbsp;&nbsp;<small style="font-size:15px; color:gray">{{obj.timestamp|timesince}}</small></small>
           {% endif%}
           <h2 id='pub' style="font-size:40px" ><a href="{{obj.get_absolute_url}}">{{obj.title}} </a></h2>
           <h id='cont' > {{obj.content|linebreaks|truncatechars:130}} </h>
@@ -48,8 +48,8 @@
           <hr>
           <div id='pub' style="background-color:#3d3d3d; padding-bottom:12px;padding-top:10px;padding-left:5px">
           <a href="{{obj.get_absolute_url}}" class="btn" role="button">Ver Mas</a>
-              <a href="http://diegolguz.pythonanywhere.com/edit/{{obj.id}}" class="btn" role="button">Editar</a>
-              <a href="http://diegolguz.pythonanywhere.com/delete/{{obj.id}}" class="btn btn-Danger" role="button">Eliminar</a>
+          <a href="http://diegolguz.pythonanywhere.com/edit/{{obj.id}}" class="btn" role="button">Editar</a>
+          <a href="http://diegolguz.pythonanywhere.com/delete/{{obj.id}}" class="btn btn-Danger" role="button">Eliminar</a>
           </div><hr>
       </div>
     </div>
