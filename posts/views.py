@@ -71,6 +71,7 @@ def post_create(request):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.user = request.user
+        instance.usuar = request.user
         instance.save()
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {

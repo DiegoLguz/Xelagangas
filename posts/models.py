@@ -31,7 +31,7 @@ class Archivos(models.Model):
 
 class Post(models.Model):
     nombrealbum = models.ForeignKey(Archivos,related_name ='nomalb')
-    usuar = models.ForeignKey('auth.User',related_name ='usrname',default=1)
+    usuar = models.CharField(max_length=120)
     title = models.CharField(max_length=120)
     slug = models.SlugField(unique=True)
     image = models.ImageField(upload_to=upload_location, 

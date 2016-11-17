@@ -33,7 +33,7 @@
   <div class="col-sm-12" >
     <div class="thumbnail">
       <!--<img src="..." alt="...">-->
-          <p id='usr' style="align:right;font-size:20px; color:gray">{{obj.timestamp}}</p>
+        <small style="color:black; font-size:25">{{obj.usuar}}  <p id='usr' style="align:right;font-size:20px; color:gray">{{obj.timestamp}}</p></small>
           <h2 id='pub' style="font-size:45px; color:#5b0000" >{{obj.nombrealbum}}</h2>
           <h2 id='pub' style="font-size:35px" ><a href="{{obj.get_absolute_url}}">{{obj.title}} </a></h2>
           <h id='cont' > {{obj.content|linebreaks|truncatechars:130}} </h>
@@ -47,10 +47,8 @@
           <div class="fb-like" data-href="{{request.build_absolute_url}}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
           <hr>
           <div id='pub' style="background-color:#3d3d3d; padding-bottom:12px;padding-top:10px;padding-left:5px">
-              
-          <h1>{{obj.usuar}}</h1>
           <a href="{{obj.get_absolute_url}}" class="btn" role="button">Ver Mas</a>
-          {% ifequal obj.usuar usuario %}
+         {% ifequal obj.usuar usuario %}
           <a href="http://diegolguz.pythonanywhere.com/edit/{{obj.id}}/" class="btn" role="button">Editar</a>
           <a href="http://diegolguz.pythonanywhere.com/delete/{{obj.id}}/" class="btn btn-Danger" role="button">Eliminar</a>
           {% endifequal %}
