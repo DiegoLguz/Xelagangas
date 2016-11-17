@@ -33,7 +33,7 @@
   <div class="col-sm-12" >
     <div class="thumbnail">
       <!--<img src="..." alt="...">-->
-        <small style="color:black; font-size:25">{{obj.usuar}}  <p id='usr' style="align:right;font-size:20px; color:gray">{{obj.timestamp}}</p></small>
+        <small id='usr' style="color:black; font-size:25">{{obj.usuar}}  <p id='usr' style="align:right;font-size:20px; color:gray">{{obj.timestamp}}</p></small>
           <h2 id='pub' style="font-size:45px; color:#5b0000" >{{obj.nombrealbum}}</h2>
           <h2 id='pub' style="font-size:35px" ><a href="{{obj.get_absolute_url}}">{{obj.title}} </a></h2>
           <h id='cont' > {{obj.content|linebreaks|truncatechars:130}} </h>
