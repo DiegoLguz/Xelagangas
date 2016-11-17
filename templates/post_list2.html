@@ -7,13 +7,20 @@
 </head>
   <body style="background-color:#3d3d3d">
       
+
       
       <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
           <ul class="nav navbar-nav"  style="padding-left:5px">
               <li class="active" style="padding-right:5px;padding-top:5px;padding-bottom:5px"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2">&nbsp;+ Artista</p></a></li>
               <li class="active " style="padding-right:5px;padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2">&nbsp;+ Cancion</p></a></li>
-              <li class="active " style="padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/logout/"><p style="text-align:right" id="pub2">&nbsp;Cerrar Sesion</p></a></li>
-              <li class="active " style="padding-top:5px;padding-bottom:5px;margin-left:14cm" ><h1 style="color:white;text-align:right;text-transform: uppercase;" id="pub">&nbsp;{{usuario}}</h1></li>
+              <li id="pub" class="dropdown" style="padding-right:5px;padding-top:5px;padding-bottom:5px;margin-left:18cm">
+                <a style="color:white;text-align:right;text-transform: uppercase;" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  {{usuario}} <b class="caret"></b> 
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="active " style="padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/logout/"><p style="text-align:right" id="pub2">&nbsp;Cerrar Sesion</p></a></li>
+                </ul>
+              </li>
           </ul>
 
       </nav>
@@ -70,15 +77,12 @@
         {% endif %}
     </span>
 </div>    
-    
-</div>
 
   <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 
   <script src="http://notoyontoy.site40.net/Js/jquery.infinitecarousel3.min.js"></script>
 
   <script type="text/javascript" src="http://notoyontoy.site40.net/Js/easing.js"></script>
-
   <script>
  var a = jQuery.noConflict();
   a(document).ready(function() {
