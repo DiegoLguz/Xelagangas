@@ -64,7 +64,7 @@ def entrada(request):
     return render(request,"post_form.html",context)
 
 def logout(request):
-    return HttpResponseRedirect("/")
+    return render(request,reverse('list'))
 
 def login(request):
     return render(request,"login.html")
