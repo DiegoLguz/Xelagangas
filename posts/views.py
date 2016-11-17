@@ -160,9 +160,9 @@ def post_update(request, id=None):
 @login_required()
 def post_delete(request, id=None):
     if not request.user.is_staff or not request.user.is_superuser:
-        raise Http404
+        return redirect("main2")
     if not request.user.is_staff or not request.user.is_superuser:
-        raise Http404
+        return redirect("main2")
     instance = get_object_or_404(Post, id=id)
     instance.delete()
     return redirect("list")
