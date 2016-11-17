@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^home/$', post_views.home, name='home'),
     url(r'^logout/$', auth_views.logout, name="logout"),
     url(r'^main/$', post_views.post_list2, name='main'),
+    url(r'^main2/$', post_views.nopermiso, name='main2'),
    
 ]
 

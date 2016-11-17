@@ -6,14 +6,17 @@
 <link href="https://fonts.googleapis.com/css?family=Ceviche+One|Marcellus+SC|New+Rocker|UnifrakturMaguntia" rel="stylesheet"> 
 </head>
   <body style="background-color:#3d3d3d">
-      
+      <div id="pub">
+      <h1>No tiene permisos para realizar esta Accion.</h1>
+      </div>
       
       <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
           <ul class="nav navbar-nav"  style="padding-left:5px">
               <li class="active" style="padding-right:5px;padding-top:5px;padding-bottom:5px"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2">&nbsp;+ Artista</p></a></li>
               <li class="active " style="padding-right:5px;padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2">&nbsp;+ Cancion</p></a></li>
               <li class="active " style="padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/logout/"><p style="text-align:right" id="pub2">&nbsp;Cerrar Sesion</p></a></li>
-              <li class="active " style="padding-top:5px;padding-bottom:5px;margin-left:14cm" ><h1 style="color:white;text-align:right;text-transform: uppercase;" id="pub">&nbsp;{{usuario}}</h1></li>
+              
+              
           </ul>
 
       </nav>
@@ -47,10 +50,8 @@
           <hr>
           <div id='pub' style="background-color:#3d3d3d; padding-bottom:12px;padding-top:10px;padding-left:5px">
           <a href="{{obj.get_absolute_url}}" class="btn" role="button">Ver Mas</a>
-      
-              <a href="http://diegolguz.pythonanywhere.com/edit/{{obj.id}}" class="btn" role="button">Editar</a>
-              <a href="http://diegolguz.pythonanywhere.com/delete/{{obj.id}}" class="btn btn-Danger" role="button">Eliminar</a>
-      
+          <a href="http://diegolguz.pythonanywhere.com/edit/{{obj.id}}" class="btn" role="button">Editar</a>
+          <a href="http://diegolguz.pythonanywhere.com/delete/{{obj.id}}" class="btn btn-Danger" role="button">Eliminar</a>
           </div><hr>
       </div>
     </div>
