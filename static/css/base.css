@@ -40,6 +40,12 @@
     font-size: 20px;
     color: black;
 }
+#contf {
+    text-align: justify;
+    font-family: 'Marcellus SC', serif;
+    font-size: 20px;
+    color: black;
+}
 
 .btn {
 background-color:white;

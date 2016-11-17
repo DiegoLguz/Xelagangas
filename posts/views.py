@@ -88,6 +88,7 @@ def post_detail(request,id=None):
 
 
 def post_list(request):
+    usuario = request.user
     queryset_list = Post.objects.all().order_by("-timestamp")
     paginator = Paginator(queryset_list, 5) 
     page = request.GET.get('page')
@@ -110,7 +111,6 @@ def post_list(request):
 
 def post_list2(request):
     usuario = request.user
-    query2 = Archivos.objects.filter(user = usuario.id)
     queryset_list = Post.objects.all().order_by("-timestamp")
     paginator = Paginator(queryset_list, 5) 
     page = request.GET.get('page')
@@ -126,7 +126,6 @@ def post_list2(request):
             "object_list": queryset,
             "title": "XelaGangas",
             "usuario": usuario,
-            "list_user":query2,
         }
     else:
         context = {
@@ -136,10 +135,6 @@ def post_list2(request):
 
 @login_required()
 def post_update(request, id=None):
-    if not request.user.is_staff or not request.user.is_superuser:
-        return redirect("main2")
-    if not request.user.is_staff or not request.user.is_superuser:
-        return redirect("main2")
     instance = get_object_or_404(Post, id=id)
     form = PostForm(request.POST or None, request.FILES or None,instance=instance)
     if form.is_valid():
@@ -181,7 +176,6 @@ def nopermiso(request):
             "object_list": queryset,
             "title": "XelaGangas",
             "usuario": usuario,
-            "list_user":query2,
         }
     else:
         context = {

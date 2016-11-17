@@ -5,7 +5,7 @@ from posts.models import Archivos
 
 
 class PostModelAdmin(admin.ModelAdmin):
-    list_display= ["title","nombrealbum","updated","timestamp"]
+    list_display= ["usuar","title","nombrealbum","updated","timestamp"]
     list_display_links = ["updated"]
     list_filter = ["updated","timestamp"]
     list_editable = ["title"]
