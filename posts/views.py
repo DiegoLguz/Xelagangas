@@ -145,7 +145,7 @@ def post_update(request, id=None):
         instance.save()
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
-        "title": instance.title,
+        "title": instance.titulo,
         "instance": instance,
         "form": form,
     }
