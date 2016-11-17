@@ -165,7 +165,7 @@ def post_delete(request, id=None):
         return redirect("main2")
     instance = get_object_or_404(Post, id=id)
     instance.delete()
-    return redirect("list")
+    return redirect("main")
 
 def nopermiso(request):
     usuario = request.user
