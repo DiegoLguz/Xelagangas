@@ -5,11 +5,11 @@ from posts.models import Archivos
 
 
 class PostModelAdmin(admin.ModelAdmin):
-    list_display= ["usuar","title","nombrealbum","updated","timestamp"]
+    list_display= ["usuar","titulo","nombrealbum","updated","timestamp"]
     list_display_links = ["updated"]
     list_filter = ["updated","timestamp"]
-    list_editable = ["title"]
-    search_fields = ["title","content"]
+    list_editable = ["titulo"]
+    search_fields = ["titulo","Letra"]
     class Meta:
         model = Post
         

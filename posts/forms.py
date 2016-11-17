@@ -9,10 +9,10 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = [
             "nombrealbum",
-            "title",
-            "image",
+            "titulo",
+            "imagen",
             "cancion",
-            "content",
+            "Letra",
         ]  
         
 class ArchivoForm(forms.ModelForm):

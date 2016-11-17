@@ -32,16 +32,16 @@ class Archivos(models.Model):
 class Post(models.Model):
     nombrealbum = models.ForeignKey(Archivos,related_name ='nomalb')
     usuar = models.ForeignKey('auth.User',related_name ='usrname',default=1)
-    title = models.CharField(max_length=120)
+    titulo = models.CharField(max_length=120)
     slug = models.SlugField(unique=True)
-    image = models.ImageField(upload_to=upload_location, 
+    imagen = models.ImageField(upload_to=upload_location, 
                         null=True, blank=True,
                         width_field="width_field",
                         height_field="height_field")
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     cancion = models.FileField(upload_to=upload_location, null=True, blank=True, validators=[validate_file_extension])
-    content = models.TextField()
+    Letra = models.TextField()
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     

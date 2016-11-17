@@ -83,7 +83,7 @@ def post_detail(request,id=None):
     usuario = request.user
     instance = get_object_or_404(Post,id=id)
     context = {
-        "title": instance.title,
+        "title": instance.titulo,
         "instance": instance,
         "usuario": usuario,
     }

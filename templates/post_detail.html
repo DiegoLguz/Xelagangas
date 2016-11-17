@@ -23,7 +23,7 @@
 
       </nav>
 <div class='page-header'>
-<h1 id='head'>{{instance.title}}</h1>
+<h1 id='head'>{{instance.titulo}}</h1>
 </div>
       
 <div class='col-sm-16 col-sm-offset-3'>
@@ -32,14 +32,11 @@
     <div class="thumbnail">      
       <div class="caption">
         <div>
-          {% if instance.user.get_full_name %}
-              <small id='usr'>{{instance.user.get_full_name}}</small><br>
-              <small style="color:#9e9e9e;">{{instance.timestamp}}</small>
-          {% endif%}
-              {% if instance.image%}
-             <img src='{{ instance.image.url}}' class='img-responsive'/>
-          {% endif %}
-            <hr>
+              <small id="usr" style="color:#9e9e9e;font-size:18px ">{{instance.timestamp}}</small>
+              {% if instance.imagen%}
+             <img src='{{ instance.imagen.url}}' class='img-responsive'/>
+             {% endif %}
+           <hr>
                <div id='pub' style="background-color:#3d3d3d; padding-bottom:12px;padding-top:10px;padding-left:5px">
                <a href="http://diegolguz.pythonanywhere.com/main/" class="btn" role="button">Inicio</a>
                  {% ifequal instance.usuar usuario %}
@@ -53,7 +50,7 @@
               <audio id="demo"  preload="auto" src='{{ instance.cancion.url}}' controls> </audio></p>
             </div>
             <hr>
-            <h id='cont'> {{instance.content|linebreaks}}</h>
+            <h id='cont'> {{instance.Letra|linebreaks}}</h>
         
             <br>
           <hr>
