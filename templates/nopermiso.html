@@ -6,8 +6,8 @@
 <link href="https://fonts.googleapis.com/css?family=Ceviche+One|Marcellus+SC|New+Rocker|UnifrakturMaguntia" rel="stylesheet"> 
 </head>
   <body style="background-color:#3d3d3d">
-      <div id="pub">
-      <h1>No tiene permisos para realizar esta Accion.</h1>
+      <div id="pub" style="background-color:red; padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px;">
+      <h1 style="color:white">No tiene permisos para realizar esta Accion.</h1>
       </div>
       
       <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
@@ -34,9 +34,8 @@
     <div class="thumbnail">
       <!--<img src="..." alt="...">-->
       <div class="caption">
-          {% if obj.user.get_full_name%}
-          <small id='usr' >{{obj.user.get_full_name}}&nbsp;&nbsp;<small style="font-size:15px; color:gray">{{obj.timestamp|timesince}}</small></small>
-          {% endif%}
+          <p id='usr' style="align:right;font-size:20px; color:gray">{{obj.timestamp}}</p>
+          <h2 id='pub' style="font-size:45px; color:#5b0000" >{{obj.nombrealbum}}</h2>
           <h2 id='pub' style="font-size:40px" ><a href="{{obj.get_absolute_url}}">{{obj.title}} </a></h2>
           <h id='cont' > {{obj.content|linebreaks|truncatechars:130}} </h>
           {% if obj.image %}
@@ -50,8 +49,8 @@
           <hr>
           <div id='pub' style="background-color:#3d3d3d; padding-bottom:12px;padding-top:10px;padding-left:5px">
           <a href="{{obj.get_absolute_url}}" class="btn" role="button">Ver Mas</a>
-          <a href="http://diegolguz.pythonanywhere.com/edit/{{obj.id}}" class="btn" role="button">Editar</a>
-          <a href="http://diegolguz.pythonanywhere.com/delete/{{obj.id}}" class="btn btn-Danger" role="button">Eliminar</a>
+          <a href="http://diegolguz.pythonanywhere.com/edit/{{obj.id}}/" class="btn" role="button">Editar</a>
+          <a href="http://diegolguz.pythonanywhere.com/delete/{{obj.id}}/" class="btn btn-Danger" role="button">Eliminar</a>
           </div><hr>
       </div>
     </div>

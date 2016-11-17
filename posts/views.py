@@ -141,9 +141,9 @@ def post_list2(request):
 @login_required()
 def post_update(request, id=None):
     if not request.user.is_staff or not request.user.is_superuser:
-        raise redirect('http://diegolguz.pythonanywhere.com/')
+        return redirect("main2")
     if not request.user.is_staff or not request.user.is_superuser:
-        raise redirect('http://diegolguz.pythonanywhere.com/')
+        return redirect("main2")
     instance = get_object_or_404(Post, id=id)
     form = PostForm(request.POST or None, request.FILES or None,instance=instance)
     if form.is_valid():
@@ -167,6 +167,29 @@ def post_delete(request, id=None):
     instance.delete()
     return redirect("list")
 
-def nopermiso():
-    return render(request,"nopermiso.html",context)
+def nopermiso(request):
+    usuario = request.user
+    query2 = Archivos.objects.filter(user = usuario.id)
+    queryset_list = Post.objects.all().order_by("-timestamp")
+    paginator = Paginator(queryset_list, 5) 
+    page = request.GET.get('page')
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:    
+        queryset = paginator.page(1)
+    except EmptyPage:
+        queryset = paginator.page(paginator.num_pages)
+    if request.user.is_authenticated():
+        
+        context = {
+            "object_list": queryset,
+            "title": "XelaGangas",
+            "usuario": usuario,
+            "list_user":query2,
+        }
+    else:
+        context = {
+            "title": "Inicie sesion para ver la lista de articulos"
+        }
+    return render(request,"nopermiso.html",context) 
     
