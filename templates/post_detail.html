@@ -13,8 +13,11 @@
   <body style="background-color:#3d3d3d">
      <nav class="navbar navbar-inverse" role="navigation">{% csrf_token %}
           <ul class="nav navbar-nav"  style="padding-left:5px">
-              <li class="active" style="padding-right:5px;"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2"><input style=" font-size:20px" class='btn btn-Default btn-xs'  value="+Artista"></p></a></li>
-                <li class="active"><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2"><input style="font-size:20px"   class='btn btn-Default btn-xs'  value="+Cancion"></p></a></li>
+              <li class="active" style="padding-right:5px;padding-top:5px;padding-bottom:5px"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2">&nbsp;+ Artista</p></a></li>
+              <li class="active " style="padding-right:5px;padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2">&nbsp;+ Cancion</p></a></li>
+              <li class="active " style="padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/logout/"><p style="text-align:right" id="pub2">&nbsp;Cerrar Sesion</p></a></li>
+              <li class="active " style="padding-top:5px;padding-bottom:5px" ><h1 id="pub" style="margin-left:12cm;color:white;text-align:right;text-transform: uppercase;">&nbsp; {{usuario}}  </h1></li>
+              
               
           </ul>
 
