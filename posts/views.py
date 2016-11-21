@@ -14,6 +14,7 @@ from .forms import SignUpForm
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 @login_required()
 def home(request):
@@ -115,6 +116,12 @@ def post_list(request):
 def post_list2(request):
     usuario = request.user
     queryset_list = Post.objects.all().order_by("-timestamp")
+    query = request.GET.get("q")
+    if query:
+        queryset_list = queryset_list.filter(
+            Q(titulo__icontains=query)
+        ).distinct()
+        
     paginator = Paginator(queryset_list, 5) 
     page = request.GET.get('page')
     try:

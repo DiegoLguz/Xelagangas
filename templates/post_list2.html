@@ -12,11 +12,19 @@
           <ul class="nav navbar-nav"  style="padding-left:5px">
               <li class="active" style="padding-right:5px;padding-top:5px;padding-bottom:5px"><a href="http://diegolguz.pythonanywhere.com/artista/"><p style="text-align:right" id="pub2">&nbsp;+ Artista</p></a></li>
               <li class="active " style="padding-right:5px;padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/create/"><p style="text-align:right" id="pub2">&nbsp;+ Cancion</p></a></li>
-              <li class="active " style="padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/logout/"><p style="text-align:right" id="pub2">&nbsp;Cerrar Sesion</p></a></li>
-              <li class="active " style="padding-top:5px;padding-bottom:5px" ><h1 id="pub" style="margin-left:12cm;color:white;text-align:right;text-transform: uppercase;">&nbsp; {{usuario}}  </h1></li>
-              
-              
+              <li class="active " style="padding-top:5px;padding-bottom:5px" ><a href="http://diegolguz.pythonanywhere.com/logout/"><p style="text-align:right" id="pub2">&nbsp;Cerrar Sesion</p></a></li>           
           </ul>
+            <h1 id="pub" style="text-align:right;padding-top:5px;padding-right:20px;padding-bottom:5px;color:white;text-align:right;text-transform: uppercase;">&nbsp; {{usuario}}  </h1>
+
+      </nav>
+      <nav class="navbar navbar-inverse" >{% csrf_token %}
+          <div style="text-align:right;padding-right:20px" >    
+              <form style="padding-top:10px" method="GET" action="">
+                  <input id='cont' style="width:350px; heigh:100px;text-align:left" type='text' name='q' value="{{request.GET.q}}" placeholder="Buscar cancion"/>
+                  
+                  <input id='pub' type='submit' value='Buscar'/>   
+              </form>
+          </div>
 
       </nav>
 
@@ -60,7 +68,7 @@
 </div>
 
     
-<div class="pagination">
+<div class="pagination" style="color:white">
     <span class="step-links">
         {% if object_list.has_previous %}
             <a href="?page={{ contacts.previous_page_number }}">previous</a>
@@ -71,7 +79,7 @@
         </span>
 
         {% if object_list.has_next %}
-            <a href="?page={{ object_list.next_page_number }}">next</a>
+            <a href="?page={{ object_list.next_page_number }}&q={{ request.GET.q}}">next</a>
         {% endif %}
     </span>
 </div>    
